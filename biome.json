@@ -1,0 +1,26 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.5.10/schema.json",
+    "files": {
+        "ignoreUnknown": true,
+        "includes": ["**/*.ts", "**/*.tsx"]
+    },
+    "linter": {
+        "rules": {
+            "complexity": {
+                "useLiteralKeys": "off"
+            }
+        }
+    },
+    "formatter": {
+        "indentWidth": 4,
+        "lineWidth": 100,
+        "useEditorconfig": true
+    },
+    "javascript": {
+        "formatter": {
+            "quoteStyle": "single",
+            "jsxQuoteStyle": "single",
+            "arrowParentheses": "asNeeded"
+        }
+    }
+}
