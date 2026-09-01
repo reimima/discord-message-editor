@@ -1,23 +1,29 @@
 @import 'tailwindcss';
 
-::-webkit-scrollbar {
-    width: 8px;
-}
+@layer base {
+    body {
+        background-color: #313338;
+        overflow: hidden;
+        @apply text-white
+    }
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
+    ::-webkit-scrollbar {
+        width: 0.5rem;
+    }
 
-::-webkit-scrollbar-thumb {
-    background: #80848E;
-    border-radius: 9999px;
-}
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
 
-::-webkit-scrollbar-corner {
-	background: transparent;
-}
+    ::-webkit-scrollbar-thumb {
+        @apply bg-[#586068] rounded-full
+    }
 
-::-webkit-resizer {
-    border-radius: 9999px;
-	background: #80848E;
+    ::-webkit-scrollbar-corner {
+	    background: transparent;
+    }
+
+    ::-webkit-resizer {
+	    @apply bg-[#586068] rounded-full
+    }
 }
