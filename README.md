@@ -1,1 +1,1 @@
-# message-editor
+# discord-message-editor

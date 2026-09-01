@@ -1,1 +1,23 @@
 @import 'tailwindcss';
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #80848E;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-corner {
+	background: transparent;
+}
+
+::-webkit-resizer {
+    border-radius: 9999px;
+	background: #80848E;
+}
