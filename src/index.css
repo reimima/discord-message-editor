@@ -1,10 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 @import 'tailwindcss';
+
+@theme {
+    --font-sans: "Nunito Sans", sans-serif;
+}
 
 @layer base {
     body {
         background-color: #313338;
         overflow: hidden;
-        @apply text-white
+        @apply text-white font-sans;
     }
 
     ::-webkit-scrollbar {
