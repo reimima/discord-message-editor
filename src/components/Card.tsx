@@ -1,29 +1,37 @@
 import { ChevronDown, ChevronRight } from 'lucide-react';
 import { type ReactNode, useState } from 'react';
 
-export function Card({ label, children }: { label?: string; children: ReactNode }) {
+type CardProps = {
+    label?: string;
+    p?: boolean;
+    children: ReactNode;
+};
+
+export function Card({ label, p = true, children }: CardProps) {
     const [open, setOpen] = useState(true);
 
     return (
-        <div className='rounded-lg bg-[#2b2d31]'>
+        <div className='rounded-sm bg-[#292b2f]'>
             {label && (
                 <button
                     type='button'
-                    className='flex items-center w-full gap-2 px-4 pt-4'
-                    onClick={() => setOpen(!open)}
+                    className={`flex w-full items-center gap-2 pt-4 ${
+                        p ? 'px-4' : ''
+                    } ${!open && p ? 'pb-4' : ''} hover:opacity-80`}
+                    onClick={() => setOpen(v => !v)}
                 >
                     {open ? (
-                        <ChevronDown className='size-5 shrink-0 hover:opacity-80' />
+                        <ChevronDown className='size-5 shrink-0' />
                     ) : (
-                        <ChevronRight className='size-5 shrink-0 hover:opacity-80' />
+                        <ChevronRight className='size-5 shrink-0' />
                     )}
-                    <span className='font-bold text-xl'>{label}</span>
+                    <span className='text-xl font-bold'>{label}</span>
                 </button>
             )}
 
-            <div className={`flex flex-col px-4 ${label ? 'pt-2' : 'pt-4'} pb-4 gap-4`}>
-                {open && children}
-            </div>
+            {open && (
+                <div className={`flex flex-col gap-4 pt-4 ${p ? 'px-4 pb-4' : ''}`}>{children}</div>
+            )}
         </div>
     );
 }

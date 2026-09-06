@@ -7,9 +7,17 @@ type ValueInputProps = {
     textarea?: boolean;
 };
 
-const inputCss = 'bg-[#1e1f22] px-3 py-2 rounded-lg outline-none focus:ring-1 focus:ring-[#5865F2]';
+const inputCss = 'bg-[#232428] px-3 py-2 rounded-sm outline-none focus:ring-1 focus:ring-[#5865f2]';
 
 export function ValueInput({ label, value, onChange, limit, required, textarea }: ValueInputProps) {
+    const props = {
+        className: textarea ? `min-h-40 ${inputCss}` : inputCss,
+        value,
+        onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+            onChange(e.target.value),
+        maxLength: limit,
+    };
+
     return (
         <div className='flex flex-col w-full'>
             <p className='text-sm text-gray-300'>
@@ -28,21 +36,7 @@ export function ValueInput({ label, value, onChange, limit, required, textarea }
                 </p>
             )}
 
-            {textarea ? (
-                <textarea
-                    className={`min-h-40 ${inputCss}`}
-                    value={value}
-                    onChange={e => onChange(e.target.value)}
-                    maxLength={limit}
-                />
-            ) : (
-                <input
-                    className={inputCss}
-                    value={value}
-                    onChange={e => onChange(e.target.value)}
-                    maxLength={limit}
-                />
-            )}
+            {textarea ? <textarea {...props} /> : <input {...props} />}
         </div>
     );
 }

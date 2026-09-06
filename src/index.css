@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
-    --font-sans: "Nunito Sans", sans-serif;
+    --font-sans: "Inter", sans-serif;
 }
 
 @layer base {
     body {
-        background-color: #313338;
+        background-color: #383a40;
         overflow: hidden;
-        @apply text-white font-sans;
+        @apply font-sans text-white;
     }
 
     ::-webkit-scrollbar {
         width: 0.5rem;
+        height: 0.4rem;
     }
 
     ::-webkit-scrollbar-track {
