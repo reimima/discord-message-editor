@@ -10,7 +10,8 @@ type ValueInputProps = {
     children?: (value: string, onChange: (value: string) => void) => ReactNode;
 };
 
-const inputCss = 'bg-[#232428] px-3 py-2 rounded-sm outline-none focus:ring-1 focus:ring-[#5865f2]';
+export const inputCss =
+    'bg-[#232428] px-3 py-2 rounded-sm outline-none focus:ring-1 focus:ring-[#5865f2]';
 
 export function ValueInput({
     label,

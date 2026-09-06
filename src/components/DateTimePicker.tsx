@@ -116,6 +116,20 @@ export function DateTimePicker({ value, onChange }: DateTimePickerProps) {
                                 </option>
                             ))}
                         </select>
+
+                        <span>:</span>
+
+                        <select
+                            value={date.getSeconds()}
+                            onChange={e => update(d => d.setSeconds(+e.target.value))}
+                            className='flex-1 rounded bg-[#313338] px-2 py-2 outline-none'
+                        >
+                            {Array.from({ length: 60 }, (_, i) => (
+                                <option key={i} value={i}>
+                                    {String(i).padStart(2, '0')}
+                                </option>
+                            ))}
+                        </select>
                     </div>
                 </div>
             )}
