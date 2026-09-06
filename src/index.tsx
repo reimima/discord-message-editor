@@ -3,7 +3,7 @@ import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
-import { Card, ValueInput } from './components';
+import { Card, DateTimePicker, ValueInput } from './components';
 
 function App() {
     const [username, setUsername] = useState('');
@@ -165,6 +165,16 @@ function App() {
                             value={currentEmbed?.footer?.icon_url ?? ''}
                             onChange={value => updateEmbed('footer.icon_url', value)}
                         />
+
+                        <ValueInput
+                            label='Timestamp'
+                            value={currentEmbed?.timestamp ?? ''}
+                            onChange={value => updateEmbed('timestamp', value)}
+                        >
+                            {(value, onChange) => (
+                                <DateTimePicker value={value} onChange={onChange} />
+                            )}
+                        </ValueInput>
                     </Card>
                 </Card>
             </div>

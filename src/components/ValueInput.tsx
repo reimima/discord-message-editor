@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 type ValueInputProps = {
     label: string;
     value: string;
@@ -5,11 +7,20 @@ type ValueInputProps = {
     limit?: number;
     required?: boolean;
     textarea?: boolean;
+    children?: (value: string, onChange: (value: string) => void) => ReactNode;
 };
 
 const inputCss = 'bg-[#232428] px-3 py-2 rounded-sm outline-none focus:ring-1 focus:ring-[#5865f2]';
 
-export function ValueInput({ label, value, onChange, limit, required, textarea }: ValueInputProps) {
+export function ValueInput({
+    label,
+    value,
+    onChange,
+    limit,
+    required,
+    textarea,
+    children,
+}: ValueInputProps) {
     const props = {
         className: textarea ? `min-h-40 ${inputCss}` : inputCss,
         value,
@@ -36,7 +47,13 @@ export function ValueInput({ label, value, onChange, limit, required, textarea }
                 </p>
             )}
 
-            {textarea ? <textarea {...props} /> : <input {...props} />}
+            {children ? (
+                children(value, onChange)
+            ) : textarea ? (
+                <textarea {...props} />
+            ) : (
+                <input {...props} />
+            )}
         </div>
     );
 }
